@@ -1,0 +1,11 @@
+* {
+    color: black;
+}
+.Nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.title {
+    text-align: center;
+}
