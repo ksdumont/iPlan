@@ -7,7 +7,7 @@ export default function Member(props) {
             {props.trips.members.map(member => {
             return (
                 <ul>
-                    <li>{member}</li>
+                    <li className='members'>{member}</li>
                 </ul>
             )
         })}

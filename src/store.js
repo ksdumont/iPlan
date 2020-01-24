@@ -3,17 +3,17 @@ export default {
       {
         id: 1,
         header: 'To Do',
-        cardIds: [ 'a', 'b', 'e', 'f', 'g', 'j', 'l', 'm' ],
+        cards: [1, 2, 3],
       },
       {
         id: 2,
         header: 'Working on It',
-        cardIds: ['b', 'c', 'd', 'f', 'h', 'i', 'k'],
+        cards: [4, 3],
       },
       {
         id: 3,
-        header: 'Completed',
-        cardIds: [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm' ],
+        header: 'Taken Care Of',
+        cards: [1, 2],
       },
     ],
     allCards: [
