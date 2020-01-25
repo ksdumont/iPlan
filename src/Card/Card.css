@@ -1,3 +1,27 @@
 .Card {
-    color: black;
+    border-radius: 4px;
+    background-color: white;
+    padding: 8px;
+    color: #17394d;
+  }
+  
+  .Card {
+    margin-bottom: 10px;
+  }
+  
+  .Card h3 {
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+  
+  .Card p {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+.delete-button {
+    float: right;
+    background-color: #f0eff3;
+    border-radius: 6px;
+    width: 10px;
 }

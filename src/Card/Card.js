@@ -4,9 +4,9 @@ import './Card.css';
 export default function Card(props) {
     return (
         <div className='Card'>
-            <button type='button' onClick = {() => props.onClickDelete(props.id)}>delete</button>
-            <h3>{props.task}</h3>
-            <p>{props.member}</p>
+            <button className='delete-button' type='button' onClick = {() => props.onClickDelete(props.id)}>delete</button>
+            <h3>Task: {props.task}</h3>
+            <p>Who: {props.member}</p>
         </div>
     )
 }

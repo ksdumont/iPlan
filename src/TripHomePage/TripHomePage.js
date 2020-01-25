@@ -23,8 +23,7 @@ class TripHomePage extends Component {
                         key={list.id}
                         id={list.id}
                         header={list.header}
-                        cards={list.cards.map(id => id === store.allCards[id])}
-
+                        cards={list.cards.map(id => store.allCards[id])}
                     />
                 ))}
             </div>
