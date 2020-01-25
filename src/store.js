@@ -33,13 +33,13 @@ export default {
             id: 3,
             task: 'rent car',
             member: 'joe',
-            trip: 1
+            trip: 2
         },
         4: {
             id: 4,
             task: 'food',
             member: 'rebecca',
-            trip: 1
+            trip: 3
         }
     },
     trips: [

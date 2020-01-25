@@ -14,21 +14,22 @@ class TripHomePage extends Component {
     }
     render() { 
         const {store} = this.state;
+        const tripCards = Object.values(store.allCards)
+            .filter(card => card.trip === Number(this.props.match.params.tripId)) 
         return (
         <>
-            <Nav trip={store.trips.find(trip => trip.id === this.props.match.params.tripId)} /> 
+            <Nav trip={store.trips.find(trip => trip.id === Number(this.props.match.params.tripId))} /> 
             <div className='list'>
                 {store.lists.map(list => (
                     <List 
                         key={list.id}
                         id={list.id}
                         header={list.header}
-                        cards={list.cards.map(id => store.allCards[id]).filter(trip => trip.trip === this.props.match.params.tripId)}
+                        cards={list.cards.map(id => store.allCards[id]) && tripCards}
                     />
-                ))}
+                ))}    
             </div>
-
-            <Member trip={store.trips.find(trip => trip.id === this.props.match.params.tripId)} />
+            <Member trip={store.trips.find(trip => trip.id === Number(this.props.match.params.tripId))} />
         </>
         );
     }

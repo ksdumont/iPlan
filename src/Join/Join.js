@@ -12,8 +12,9 @@ export default class Join extends Component {
       }
       handleSubmit = (e) => {
         e.preventDefault()
-        const name = this.state
+        const {name} = this.state
         const tripId = Number(this.state.tripId)
+    
         if (!store.trips.find(trip => trip.id === tripId)) {
             console.log('cant find id')
         } else {
