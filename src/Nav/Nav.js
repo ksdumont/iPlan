@@ -2,7 +2,7 @@ import React from 'react';
 import './Nav.css'
 
 export default function Nav(props) {
-    console.log(props.trip.id)
+    
     return (
         <div> 
             <section className='Nav'>

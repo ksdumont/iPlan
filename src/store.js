@@ -45,18 +45,18 @@ export default {
     trips: [
         {
             id: 1,
-            title: 'trip one',
+            title: 'Trip one',
             members: ['keith', 'mika', 'joe', 'rebecca']
         },
-        // {
-        //     id: 2,
-        //     title: 'trip two',
-        //     members: ['keith', 'mika', 'joe', 'chickpea']
-        // },
-        // {
-        //     id: 3,
-        //     title: 'trip three',
-        //     members: ['keith', 'mika', 'joe', 'chickpea']
-        // }
+        {
+            id: 2,
+            title: 'trip two',
+            members: ['kyle', 'mika', 'joe', 'chickpea']
+        },
+        {
+            id: 3,
+            title: 'trip three',
+            members: ['kevin', 'mika', 'joe', 'chickpea']
+        }
     ]
 }

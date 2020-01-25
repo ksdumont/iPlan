@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
 import './Create.css'
-import {Link} from 'react-router-dom'
 import store from '../store'
 import uuid from 'uuid/v4'
-import TripHomePage from '../TripHomePage/TripHomePage';
 
 
 export default class Create extends Component {

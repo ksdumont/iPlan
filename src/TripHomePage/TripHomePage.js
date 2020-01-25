@@ -16,19 +16,19 @@ class TripHomePage extends Component {
         const {store} = this.state;
         return (
         <>
-            <Nav trip={store.trips.filter(trip => trip.id === this.props.match.params.tripId)}/> 
+            <Nav trip={store.trips.find(trip => trip.id === this.props.match.params.tripId)} /> 
             <div className='list'>
                 {store.lists.map(list => (
                     <List 
                         key={list.id}
                         id={list.id}
                         header={list.header}
-                        cards={list.cards.map(id => store.allCards[id])}
+                        cards={list.cards.map(id => store.allCards[id]).filter(trip => trip.trip === this.props.match.params.tripId)}
                     />
                 ))}
             </div>
 
-            <Member trips={store.trips[0]} />
+            <Member trip={store.trips.find(trip => trip.id === this.props.match.params.tripId)} />
         </>
         );
     }
