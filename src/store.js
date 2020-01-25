@@ -21,28 +21,24 @@ export default {
             id: 1,
             task: 'beer',
             member: 'keith',
-            list: 1,
             trip: 1
         },
         2: {
             id: 2,
             task: 'book house',
             member: 'mika',
-            list: 1,
             trip: 1
         },
         3: {
             id: 3,
             task: 'rent car',
             member: 'joe',
-            list: 1,
             trip: 1
         },
         4: {
             id: 4,
             task: 'food',
             member: 'rebecca',
-            list: 1,
             trip: 1
         }
     },
