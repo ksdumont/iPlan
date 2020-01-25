@@ -16,7 +16,7 @@ class TripHomePage extends Component {
         const {store} = this.state;
         return (
         <>
-            <Nav trips={store.trips[0]}/>
+            <Nav trip={store.trips.filter(trip => trip.id === this.props.match.params.tripId)}/> 
             <div className='list'>
                 {store.lists.map(list => (
                     <List 
@@ -28,7 +28,7 @@ class TripHomePage extends Component {
                 ))}
             </div>
 
-            <Member trips={store.trips[0]}/>
+            <Member trips={store.trips[0]} />
         </>
         );
     }
