@@ -1,6 +1,7 @@
 import React from 'react';
 import './List.css'
 import Card from '../Card/Card'
+import AddCardForm from '../AddCardForm/AddCardForm';
 
 export default function List(props) {
     return (
@@ -15,6 +16,7 @@ export default function List(props) {
             id={card.id}
             task={card.task}
             member={card.member}
+            onClickDelete={props.onClickDelete}
             /> 
             ))}
             <button type='button' className='List-add-button' onClick={() => props.onClickAdd(props.id)}>+ Add Task</button>
