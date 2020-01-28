@@ -35,7 +35,6 @@ class TripHomePage extends Component {
                   card.list === list.id &&
                   card.trip == this.props.match.params.tripId
               )}
-              displayForm ={list.displayAddTaskForm}
               onClickAdd={this.handleAddCard}
               onClickDelete={this.handleDeleteCard}
             />

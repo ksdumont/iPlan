@@ -7,6 +7,7 @@ import Join from "./Join/Join";
 import TripHomePage from "./TripHomePage/TripHomePage";
 import TripContext from "./TripContext";
 import uuid from "uuid/v4";
+import { thisTypeAnnotation } from "@babel/types";
 
 class App extends Component {
   constructor() {
@@ -79,11 +80,12 @@ class App extends Component {
       
       
       toggleAddTaskForm: (list) => {
-        const displayAddTaskForm = this.state.list.displayAddTaskForm
+        const toggledList = {...list, displayAddTaskForm: !list.displayAddTaskForm}
+        const otherLists = this.state.lists.filter(l => l.id !== list.id)
         this.setState({
-          displayAddTaskForm: !this.state.lists.displayAddTaskForm
+          lists: [toggledList, otherLists]
         })
-        console.log(list.id, displayAddTaskForm)
+        console.log(toggledList, otherLists)
       },
       
       createTrip: (title, name, cb) => {
