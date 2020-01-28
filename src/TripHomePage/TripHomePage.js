@@ -29,6 +29,7 @@ class TripHomePage extends Component {
             <List
               key={list.id}
               id={list.id}
+              list={list}
               header={list.header}
               cards={allCards.filter(
                 card =>

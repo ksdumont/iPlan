@@ -83,7 +83,7 @@ class App extends Component {
         const toggledList = {...list, displayAddTaskForm: !list.displayAddTaskForm}
         const otherLists = this.state.lists.filter(l => l.id !== list.id)
         this.setState({
-          lists: [toggledList, otherLists]
+          lists: [toggledList, ...otherLists]
         })
         console.log(toggledList, otherLists)
       },
