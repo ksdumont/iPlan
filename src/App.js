@@ -16,14 +16,17 @@ class App extends Component {
         {
           id: 1,
           header: "To Do",
+          displayAddTaskForm: false,
         },
         {
           id: 2,
           header: "Working on It",
+          displayAddTaskForm: false,
         },
         {
           id: 3,
           header: "Taken Care Of",
+          displayAddTaskForm: false,
         }
       ],
       allCards: [
@@ -73,12 +76,14 @@ class App extends Component {
           members: ["kevin", "mika", "joe", "chickpea"]
         }
       ],
-      displayAddTaskForm: false,
       
-      toggleAddTaskForm: () => {
-        this.setState ({
-          displayAddTaskForm: !this.state.displayAddTaskForm
+      
+      toggleAddTaskForm: (list) => {
+        const displayAddTaskForm = this.state.list.displayAddTaskForm
+        this.setState({
+          displayAddTaskForm: !this.state.lists.displayAddTaskForm
         })
+        console.log(list.id, displayAddTaskForm)
       },
       
       createTrip: (title, name, cb) => {
