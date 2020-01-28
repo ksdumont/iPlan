@@ -19,9 +19,9 @@ export default function Home() {
                 Get started by creating Your next adventure!</p>
             </section>
             
-            <section className="buttons">
-                <Link to='/create'><button id="create">Create a Trip!</button></Link>
-                <Link to='/join'><button id="join">Join a Trip!</button></Link>
+            <section className="home-buttons">
+                <Link to='/create'><button className="create">Create a Trip!</button></Link>
+                <Link to='/join'><button className="join">Join a Trip!</button></Link>
             </section>
         </div>
     )

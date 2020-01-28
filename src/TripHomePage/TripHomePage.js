@@ -1,51 +1,50 @@
-import React, {Component} from 'react';
-import Nav from '../Nav/Nav'
-import Member from '../Member/Member'
-import List from '../List/List'
-import AddCardForm from '../AddCardForm/AddCardForm'
-import store from '../store'
-import './TripHomePage.css'
+import React, { Component } from "react";
+import Nav from "../Nav/Nav";
+import Member from "../Member/Member";
+import List from "../List/List";
+import AddCardForm from "../AddCardForm/AddCardForm";
+import "./TripHomePage.css";
+import TripContext from "../TripContext";
 
 class TripHomePage extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            store
-          }
-        }
-    handleAddCard = (listId) => {
-        console.log(listId)
-        return <AddCardForm />
+  static contextType = TripContext;
+
+  handleAddCard = listId => {
+   this.context.toggleAddTaskForm()
+  };
+  handleDeleteCard = cardId => {
+    this.context.deleteTask(cardId)
+  };
+
+  render() {
+    const { trips, lists, allCards } = this.context;
+    return (
+      <>
+        <Nav
+          trip={trips.find(trip => trip.id == this.props.match.params.tripId)}
+        />
+        <div className="list">
+          {lists.map(list => (
+            <List
+              key={list.id}
+              id={list.id}
+              header={list.header}
+              cards={allCards.filter(
+                card =>
+                  card.list === list.id &&
+                  card.trip == this.props.match.params.tripId
+              )}
+              onClickAdd={this.handleAddCard}
+              onClickDelete={this.handleDeleteCard}
+            />
+          ))}
+        </div>
+        <Member
+          trip={trips.find(trip => trip.id == this.props.match.params.tripId)}
+        />
+      </>
+    );
+  }
 }
-    handleDeleteCard = (cardId) => {
-        const {lists, allCards} = this.state.store
-        const cardToDelete = Object.values(allCards)
-                            .filter(card => card.id === cardId)
-       
-    }
-    
-    render() { 
-        const {store} = this.state;
-        return (
-        <>
-            <Nav trip={store.trips.find(trip => trip.id == this.props.match.params.tripId)} /> 
-            <div className='list'>
-                {store.lists.map(list => (
-                    <List 
-                        key={list.id}
-                        id={list.id}
-                        header={list.header}
-                        cards={list.cards.map(id => store.allCards[id]) && 
-                               Object.values(store.allCards).filter(card => card.trip == this.props.match.params.tripId)}
-                        onClickAdd={this.handleAddCard}
-                        onClickDelete={this.handleDeleteCard}
-                    />
-                ))}    
-            </div>
-            <Member trip={store.trips.find(trip => trip.id == this.props.match.params.tripId)} />
-        </>
-        );
-    }
-}
- 
+
 export default TripHomePage;
