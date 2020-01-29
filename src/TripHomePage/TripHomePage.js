@@ -10,8 +10,8 @@ class TripHomePage extends Component {
   static contextType = TripContext;
 
   handleAddCard = listId => {
-   const chosenList = this.context.lists.find(list => list.id === listId)
-   this.context.toggleAddTaskForm(chosenList)
+   //const chosenList = this.context.lists.find(list => list.id === listId)
+   this.context.toggleAddTaskForm(listId)
   };
   handleDeleteCard = cardId => {
     this.context.deleteTask(cardId)

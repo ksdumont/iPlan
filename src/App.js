@@ -79,13 +79,14 @@ class App extends Component {
       ],
       
       
-      toggleAddTaskForm: (list) => {
-        const toggledList = {...list, displayAddTaskForm: !list.displayAddTaskForm}
-        const otherLists = this.state.lists.filter(l => l.id !== list.id)
-        this.setState({
-          lists: [toggledList, ...otherLists]
-        })
-        console.log(toggledList, otherLists)
+      toggleAddTaskForm: (listId) => {
+       const { lists } = this.state;
+       const toggledLists = lists.map(l => {
+         return listId === l.id ? 
+         {...l, displayAddTaskForm: !l.displayAddTaskForm}
+         : l
+       })
+       this.setState({lists: toggledLists})
       },
       
       createTrip: (title, name, cb) => {
