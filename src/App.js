@@ -7,7 +7,6 @@ import Join from "./Join/Join";
 import TripHomePage from "./TripHomePage/TripHomePage";
 import TripContext from "./TripContext";
 import uuid from "uuid/v4";
-import { thisTypeAnnotation } from "@babel/types";
 
 class App extends Component {
   constructor() {
@@ -111,8 +110,11 @@ class App extends Component {
         });
         this.setState({trips: [...this.state.trips, trips]}, cb)
       },
-      addTask: () => {
-
+      addTask: (newTask) => {
+        const newAllCards = this.state.allCards.push(newTask)
+        this.setState({
+          allCards: newAllCards
+        })
       },
       deleteTask: (cardId) => {
         const { allCards } = this.state;

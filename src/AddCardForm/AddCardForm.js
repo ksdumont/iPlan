@@ -1,6 +1,9 @@
 import React, {Component} from 'react'
+import TripContext from "../TripContext";
 
 export default class AddCardForm extends Component {
+    static contextType = TripContext;
+    
     constructor(props) {
         super(props)
         this.state = {
@@ -9,7 +12,18 @@ export default class AddCardForm extends Component {
         }
     }
     handleSubmit = e => {
-
+        e.preventDefault()
+        const { task, name } = this.state
+        const {id} = this.context.allCards.length
+        const trip = this.props.match.params.tripId
+        const newTask = {
+            id,
+            task,
+            member: name,
+            trip,
+            list: 1
+          }
+          this.context.addTask(newTask)
     }
     handleTaskChange = e => {
         const task = e.target.value;
