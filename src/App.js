@@ -111,7 +111,7 @@ class App extends Component {
         this.setState({trips: [...this.state.trips, trips]}, cb)
       },
       addTask: (newTask) => {
-        const newAllCards = this.state.allCards.push(newTask)
+        const newAllCards = [...this.state.allCards, newTask]
         this.setState({
           allCards: newAllCards
         })

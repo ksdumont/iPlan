@@ -37,6 +37,7 @@ class TripHomePage extends Component {
               )}
               onClickAdd={this.handleAddCard}
               onClickDelete={this.handleDeleteCard}
+              tripId={this.props.match.params.tripId}
             />
           ))}
         </div>

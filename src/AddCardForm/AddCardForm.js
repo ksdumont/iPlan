@@ -14,14 +14,15 @@ export default class AddCardForm extends Component {
     handleSubmit = e => {
         e.preventDefault()
         const { task, name } = this.state
-        const {id} = this.context.allCards.length
-        const trip = this.props.match.params.tripId
+        const id = this.context.allCards.length + 1
+        const trip = this.props.tripId
+        const { list } = this.props
         const newTask = {
             id,
             task,
             member: name,
             trip,
-            list: 1
+            list
           }
           this.context.addTask(newTask)
     }

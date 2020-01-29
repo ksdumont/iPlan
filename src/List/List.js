@@ -25,7 +25,7 @@ export default class List extends Component {
                     <button type='button' className='List-add-button' onClick={() => this.props.onClickAdd(this.props.id)}>+ Add Task</button>
                 </div>
                 <div className='add-task-form'>
-                    {this.props.list.displayAddTaskForm ? <AddCardForm /> : null}
+                    {this.props.list.displayAddTaskForm ? <AddCardForm tripId={this.props.tripId} list={this.props.id}/> : null}
                 </div>
             </section>
             )
