@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 import './Nav.css'
 
 export default function Nav(props) {
@@ -6,7 +7,7 @@ export default function Nav(props) {
     return (
         <div> 
             <section className='Nav'>
-                <h2 className='logo'>iPlan</h2>
+            <Link to='/'><button className="logo">iPlan</button></Link>
                 <h2 className='id'>ID: {props.trip.id}</h2>   
             </section> 
             <section className='title'>

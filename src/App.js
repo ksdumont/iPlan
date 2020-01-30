@@ -132,9 +132,9 @@ class App extends Component {
       <TripContext.Provider value={this.state}>
         <div>
           <Switch>
-            <Route path="/create" component={Create} />
-            <Route path="/join" component={Join} />
-            <Route path="/trip/:tripId" component={TripHomePage} />
+            <Route exact path="/create" component={Create} />
+            <Route exact path="/join" component={Join} />
+            <Route exact path="/trip/:tripId" component={TripHomePage} />
             <Route exact path="/" component={Home} />
           </Switch>
         </div>
