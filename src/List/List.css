@@ -1,5 +1,5 @@
 .List {
-    min-width: 218px;
+    min-width: 100px;
   }
   
   .List:not(:first-of-type) {
@@ -23,13 +23,13 @@
   }
   
   .List-header {
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
+    border-radius: 4px;
+    border: solid 1px black;
+    text-align: center;
   }
   
   .List-tasks {
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
+    border-radius: 4px;
     padding-bottom: 10px;
     max-height: calc(100vh - 102px);
     overflow: auto;
@@ -38,14 +38,16 @@
   .List-add-button {
     background: none;
     border: none;
-    font-size: 15px;
+    border-radius: 10px;
+    font-size: 25px;
     font-weight: bold;
-    padding: 5px 6px;
+    padding: 2px 5px;
     display: block;
-    background-color: white;
-    
+    background-color: rgba(160, 158, 158, 0.45);
+    margin: 5px auto;
   }
   
   .List-add-button:hover {
     cursor: pointer;
+    color: lightblue;
   }

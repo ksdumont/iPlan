@@ -37,7 +37,7 @@ export default class Create extends Component {
           <h1>iPlan</h1>
         </header>
 
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className='create-form'>
           <label>Trip Title:</label>
           <input
             type="text"

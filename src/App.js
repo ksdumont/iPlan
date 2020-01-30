@@ -20,12 +20,12 @@ class App extends Component {
         },
         {
           id: 2,
-          header: "Working on It",
+          header: "Assigned",
           displayAddTaskForm: false,
         },
         {
           id: 3,
-          header: "Taken Care Of",
+          header: "Done",
           displayAddTaskForm: false,
         }
       ],
@@ -68,12 +68,12 @@ class App extends Component {
         {
           id: 2,
           title: "trip two",
-          members: ["kyle", "mika", "joe", "chickpea"]
+          members: ["kyle", "mika", "joe", "susan"]
         },
         {
           id: 3,
           title: "trip three",
-          members: ["kevin", "mika", "joe", "chickpea"]
+          members: ["kevin", "mika", "joe", "jordana"]
         }
       ],
       

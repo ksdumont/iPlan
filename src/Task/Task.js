@@ -5,8 +5,8 @@ export default function Task(props) {
   return (
     <div className="Task">
       <div className="task-left">
-        <h3>Task: {props.task}</h3>
-        <p>Who: {props.member}</p>
+        <h3>Task:{props.task}</h3>
+        <p>Name:{props.member}</p>
       </div>
       <button
         className="delete-button"

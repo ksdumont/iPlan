@@ -6,9 +6,10 @@ export default function Member(props) {
         <li key={index} className='memberName'>{member}</li>
     ))
     return (
-        <ul className='members'>
-            {members}
-        </ul>
+            <ul className='members'>
+            <h3>Members:</h3>
+                {members}
+            </ul>
     )
 }
 

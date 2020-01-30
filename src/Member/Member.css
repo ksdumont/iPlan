@@ -1,4 +1,19 @@
+.members {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+.members > h3 {
+    color: rgb(113, 38, 38);
+    font-size: 28px;
+    font-weight: bold;
+}
 .memberName {
-    color: rgb(4, 4, 4);
     font-size: 24px;
+    list-style: none;
+    color: rgb(113, 38, 38);
+    font-weight: bold;
 }

@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import TripContext from "../TripContext";
+import './AddTaskForm.css'
 
 export default class AddTaskForm extends Component {
     static contextType = TripContext;
@@ -40,16 +41,16 @@ export default class AddTaskForm extends Component {
         });
       };
     render() {
-        return (
-            <form onSubmit={this.handleSubmit} className='add-task-form'>
-            <label>Task:</label>
-            <input type='text' name='task' value={this.state.task} onChange={this.handleTaskChange}
-                    aria-label='task' required/>
-            <label>Who:</label>
-            <input type='text' name='name' value={this.state.name} onChange={this.handleNameChange}
-                    aria-label='Your Name' required/>
-            <button type='submit'>+</button>
-        </form>
+        return (      
+            <form className='add-task-form' onSubmit={this.handleSubmit}>
+              <label>Task:</label>
+              <input type='text' name='task' value={this.state.task} onChange={this.handleTaskChange}
+                      aria-label='task' required/>
+              <label>Name:</label>
+              <input type='text' name='name' value={this.state.name} onChange={this.handleNameChange}
+                      aria-label='Your Name' required/>
+              <button type='submit' className='add-task-submit'>+</button>
+           </form>
         )
     }
     }

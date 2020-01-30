@@ -22,7 +22,7 @@ export default class List extends Component {
                     onClickDelete={this.props.onClickDelete}
                     /> 
                     ))}
-                    <button type='button' className='List-add-button' onClick={() => this.props.onClickAdd(this.props.id)}>+ Add Task</button>
+                    <button type='button' className='List-add-button' onClick={() => this.props.onClickAdd(this.props.id)}>+</button>
                 </div>
                 <div className='add-task-form'>
                     {this.props.list.displayAddTaskForm ? <AddTaskForm tripId={this.props.tripId} list={this.props.id}/> : null}

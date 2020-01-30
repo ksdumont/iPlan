@@ -43,7 +43,7 @@ export default class Join extends Component {
           <h1>iPlan</h1>
         </header>
 
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className='join-form'>
           <label>Trip id:</label>
           <input
             type="text"

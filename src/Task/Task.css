@@ -1,32 +1,30 @@
 .Task {
   border-radius: 4px;
-  background-color: rgba(255, 255, 255, 0.45);
+  background-color: rgba(215, 210, 210, 0.45);
   padding: 8px;
   color: #17394d;
   margin-bottom: 10px;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-}
-
-.task-left {
-
+  flex-wrap: wrap;
+  overflow: auto;
 }
 
 .Task h3 {
-  font-size: 18px;
+  font-size: 16px;
   margin-bottom: 4px;
+  font-weight: normal;
 }
 
 .Task p {
   margin: 0;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .delete-button {
-  background-color: red;
+  background-color: maroon;
   border-radius: 6px;
-  margin-left: 20px;
   color: white;
-  font-size: 20px;
+  font-size: 10px;
 }

@@ -8,18 +8,18 @@ header > h1 {
   font-size: 50px;
   margin-bottom: 60px;
 }
-form {
+.create-form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-form > label {
+.create-form > label {
   margin: 10px;
   font-size: 30px;
   color: black;
   text-align: center;
 }
-input[type="text"] {
+.create-form > input[type="text"] {
   margin: 10px;
   border-radius: 2px;
   height: 45px;
