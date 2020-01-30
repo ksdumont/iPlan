@@ -29,7 +29,7 @@ class App extends Component {
           displayAddTaskForm: false,
         }
       ],
-      allCards: [
+      allTasks: [
         {
           id: 1,
           task: "beer",
@@ -111,16 +111,16 @@ class App extends Component {
         this.setState({trips: [...this.state.trips, trips]}, cb)
       },
       addTask: (newTask) => {
-        const newAllCards = [...this.state.allCards, newTask]
+        const updateAllTasks = [...this.state.allTasks, newTask]
         this.setState({
-          allCards: newAllCards
+          allTasks: updateAllTasks
         })
       },
-      deleteTask: (cardId) => {
-        const { allCards } = this.state;
-        const remainingCards = allCards.filter(card => card.id !== cardId)
+      deleteTask: (taskId) => {
+        const { allTasks } = this.state;
+        const remainingTasks = allTasks.filter(task => task.id !== taskId)
         this.setState({
-          allCards: remainingCards
+          allTasks: remainingTasks
         })
       }
     };

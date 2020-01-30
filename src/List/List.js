@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './List.css'
-import Card from '../Card/Card'
-import AddCardForm from '../AddCardForm/AddCardForm';
+import Task from '../Task/Task'
+import AddTaskForm from '../AddTaskForm/AddTaskForm';
 import TripContext from "../TripContext";
 
 export default class List extends Component {
@@ -12,20 +12,20 @@ export default class List extends Component {
                 <header className="List-header">
                     <h2>{this.props.header}</h2>
                 </header>
-                <div className="List-cards">
-                {this.props.cards.map((card) => (
-                    <Card
-                    key={card.id}
-                    id={card.id}
-                    task={card.task}
-                    member={card.member}
+                <div className="List-tasks">
+                {this.props.tasks.map((task) => (
+                    <Task
+                    key={task.id}
+                    id={task.id}
+                    task={task.task}
+                    member={task.member}
                     onClickDelete={this.props.onClickDelete}
                     /> 
                     ))}
                     <button type='button' className='List-add-button' onClick={() => this.props.onClickAdd(this.props.id)}>+ Add Task</button>
                 </div>
                 <div className='add-task-form'>
-                    {this.props.list.displayAddTaskForm ? <AddCardForm tripId={this.props.tripId} list={this.props.id}/> : null}
+                    {this.props.list.displayAddTaskForm ? <AddTaskForm tripId={this.props.tripId} list={this.props.id}/> : null}
                 </div>
             </section>
             )

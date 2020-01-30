@@ -1,10 +1,10 @@
 import React from "react";
-import "./Card.css";
+import "./Task.css";
 
-export default function Card(props) {
+export default function Task(props) {
   return (
-    <div className="Card">
-      <div className="card-left">
+    <div className="Task">
+      <div className="task-left">
         <h3>Task: {props.task}</h3>
         <p>Who: {props.member}</p>
       </div>

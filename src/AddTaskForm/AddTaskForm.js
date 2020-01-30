@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import TripContext from "../TripContext";
 
-export default class AddCardForm extends Component {
+export default class AddTaskForm extends Component {
     static contextType = TripContext;
     
     constructor(props) {
@@ -14,7 +14,7 @@ export default class AddCardForm extends Component {
     handleSubmit = e => {
         e.preventDefault()
         const { task, name } = this.state
-        const id = this.context.allCards.length + 1
+        const id = this.context.allTasks.length + 1
         const trip = this.props.tripId
         const { list } = this.props
         const newTask = {
@@ -25,6 +25,7 @@ export default class AddCardForm extends Component {
             list
           }
           this.context.addTask(newTask)
+          this.context.toggleAddTaskForm(list)
     }
     handleTaskChange = e => {
         const task = e.target.value;
@@ -40,7 +41,7 @@ export default class AddCardForm extends Component {
       };
     render() {
         return (
-            <form onSubmit={this.handleSubmit} className='add-card-form'>
+            <form onSubmit={this.handleSubmit} className='add-task-form'>
             <label>Task:</label>
             <input type='text' name='task' value={this.state.task} onChange={this.handleTaskChange}
                     aria-label='task' required/>

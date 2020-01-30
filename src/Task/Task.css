@@ -1,4 +1,4 @@
-.Card {
+.Task {
   border-radius: 4px;
   background-color: rgba(255, 255, 255, 0.45);
   padding: 8px;
@@ -9,15 +9,16 @@
   justify-content: space-between;
 }
 
-.card-left {
+.task-left {
+
 }
 
-.Card h3 {
+.Task h3 {
   font-size: 18px;
   margin-bottom: 4px;
 }
 
-.Card p {
+.Task p {
   margin: 0;
   font-size: 18px;
 }

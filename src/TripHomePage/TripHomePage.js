@@ -2,22 +2,22 @@ import React, { Component } from "react";
 import Nav from "../Nav/Nav";
 import Member from "../Member/Member";
 import List from "../List/List";
-import AddCardForm from "../AddCardForm/AddCardForm";
+import AddTaskForm from "../AddTaskForm/AddTaskForm";
 import "./TripHomePage.css";
 import TripContext from "../TripContext";
 
 class TripHomePage extends Component {
   static contextType = TripContext;
 
-  handleAddCard = listId => {
+  handleAddTask = listId => {
    this.context.toggleAddTaskForm(listId)
   };
-  handleDeleteCard = cardId => {
-    this.context.deleteTask(cardId)
+  handleDeleteTask = taskId => {
+    this.context.deleteTask(taskId)
   };
 
   render() {
-    const { trips, lists, allCards } = this.context;
+    const { trips, lists, allTasks } = this.context;
     return (
       <>
         <Nav
@@ -30,13 +30,13 @@ class TripHomePage extends Component {
               id={list.id}
               list={list}
               header={list.header}
-              cards={allCards.filter(
-                card =>
-                  card.list === list.id &&
-                  card.trip == this.props.match.params.tripId
+              tasks={allTasks.filter(
+                  task =>
+                  task.list === list.id &&
+                  task.trip == this.props.match.params.tripId
               )}
-              onClickAdd={this.handleAddCard}
-              onClickDelete={this.handleDeleteCard}
+              onClickAdd={this.handleAddTask}
+              onClickDelete={this.handleDeleteTask}
               tripId={this.props.match.params.tripId}
             />
           ))}
