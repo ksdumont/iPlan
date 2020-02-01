@@ -7,6 +7,7 @@ import Join from "./Join/Join";
 import TripHomePage from "./TripHomePage/TripHomePage";
 import TripContext from "./TripContext";
 import uuid from "uuid/v4";
+require('dotenv').config()
 
 class App extends Component {
   constructor() {
