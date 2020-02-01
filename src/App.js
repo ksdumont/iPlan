@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import "./App.css";
+import config from './config';
 import Home from "./Home/Home";
 import Create from "./Create/Create";
 import Join from "./Join/Join";
@@ -13,72 +14,11 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      lists: [
-        {
-          id: 1,
-          header: "To Do",
-          displayAddTaskForm: false,
-        },
-        {
-          id: 2,
-          header: "Assigned",
-          displayAddTaskForm: false,
-        },
-        {
-          id: 3,
-          header: "Done",
-          displayAddTaskForm: false,
-        }
-      ],
-      allTasks: [
-        {
-          id: 1,
-          task: "beer",
-          member: "keith",
-          trip: 1,
-          list: 1
-        },
-        {
-          id: 2,
-          task: "book house",
-          member: "mika",
-          trip: 1,
-          list: 2
-        },
-        {
-          id: 3,
-          task: "rent car",
-          member: "joe",
-          trip: 2,
-          list: 1
-        },
-        {
-          id: 4,
-          task: "food",
-          member: "rebecca",
-          trip: 3,
-          list: 1
-        }
-      ],
-      trips: [
-        {
-          id: 1,
-          title: "Trip one",
-          members: ["keith", "mika", "joe", "rebecca"]
-        },
-        {
-          id: 2,
-          title: "trip two",
-          members: ["kyle", "mika", "joe", "susan"]
-        },
-        {
-          id: 3,
-          title: "trip three",
-          members: ["kevin", "mika", "joe", "jordana"]
-        }
-      ],
-      
-      
+      lists: [],
+      trips: [],
+      members: [],
+      tasks: [],
+
       toggleAddTaskForm: (listId) => {
        const { lists } = this.state;
        const toggledLists = lists.map(l => {
@@ -126,9 +66,34 @@ class App extends Component {
       }
     };
   }
-
+  componentDidMount() {
+    Promise.all([
+      fetch(`${config.API_BASE_URL}/api/lists`),
+      fetch(`${config.API_BASE_URL}/api/trips`),
+      fetch(`${config.API_BASE_URL}/api/members`),
+      fetch(`${config.API_BASE_URL}/api/tasks`)
+    ])
+    .then(([listsRes, tripsRes, membersRes, tasksRes]) => {
+      if (!listsRes.ok)
+        return listsRes.json().then(e => Promise.reject(e));
+      if (!tripsRes.ok)
+        return tripsRes.json().then(e => Promise.reject(e));
+      if (!membersRes.ok)
+        return membersRes.json().then(e => Promise.reject(e));
+      if (!tasksRes.ok)
+        return tasksRes.json().then(e => Promise.reject(e));
+        return Promise.all([listsRes.json(), tripsRes.json(), membersRes.json(), tasksRes.json()]);
+    })
+    .then(([lists, trips, members, tasks]) => {
+      this.setState({lists, trips, members, tasks});
+    })
+    .catch(error => {
+      console.error({error});
+    });
+  }
 
   render() {
+    console.log(this.state)
     return (
       <TripContext.Provider value={this.state}>
         <div>
