@@ -14,9 +14,10 @@ export default class Create extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const { title, name } = this.state;
-    this.context.createTrip(title, name, id => {
-      this.props.history.push(`/trip/${id}`);
+    this.context.createTrip(title => {
+    //this.props.history.push(`/trip/${id}`);
     });
+    this.context.addMember(name, title)
   };
   handleTitleChange = e => {
     const title = e.target.value;

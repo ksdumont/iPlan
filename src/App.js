@@ -29,19 +29,19 @@ class App extends Component {
        this.setState({lists: toggledLists})
       },
       
-      createTrip: (title, name, cb) => {
-        const id = uuid();
+      createTrip: (title, cb) => {
         const newTrip = {
-          id,
-          title,
-          members: [name]
+          title
         };
-        // fetch post call
-        // .then(res=>res.json())
-        // .then(newTrip=>)
-        this.setState({ trips: [...this.state.trips, newTrip] }, () => {
-          cb(id);
-        });
+        fetch(`${config.API_BASE_URL}/api/trips`, {
+          method: 'POST'
+        })
+        .then(res => res.json())
+       
+        .then(newTrip =>  
+        this.setState({ trips: [...this.state.trips, newTrip] }), () => {
+          cb(newTrip.id);
+        })
       },
       joinTrip: (tripId, name, cb) => {
         const trips = this.state.trips.map(trip => {
@@ -62,6 +62,17 @@ class App extends Component {
         const remainingTasks = allTasks.filter(task => task.id !== taskId)
         this.setState({
           allTasks: remainingTasks
+        })
+      }, 
+      addMember: (name, title) => {
+        const trip = this.state.trips.find(t => t === title)
+        const tripId = trip.id
+        const newMember = {
+          name,
+          trip: tripId
+        }
+        this.setState({
+          members: [...this.state.members, newMember]
         })
       }
     };
