@@ -4,7 +4,7 @@ import './Nav.css'
 
 export default function Nav(props) {
     
-    return (
+    return props.trip !== undefined ? (
         <div> 
             <section className='Nav'>
             <Link to='/'><button className="logo">iPlan</button></Link>
@@ -15,5 +15,5 @@ export default function Nav(props) {
             </section>
         </div>
         
-    )
+    ) : ''
 }

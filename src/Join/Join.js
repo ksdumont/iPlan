@@ -14,12 +14,12 @@ export default class Join extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const { name } = this.state;
-    const tripId = Number(this.state.tripId);
+    const tripId = Number(this.state.tripId)
 
     if (!this.context.trips.find(trip => trip.id === tripId)) {
       console.log("cant find id");
     } else {
-      this.context.joinTrip(tripId, name, () => {
+      this.context.addMember(name, tripId, () => {
         this.props.history.push(`/trip/${tripId}`);
       });
     }

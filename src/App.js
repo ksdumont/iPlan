@@ -29,7 +29,7 @@ class App extends Component {
        this.setState({lists: toggledLists})
       },
       
-      createTrip: (title, name) => {
+      createTrip: (title, cb) => {
         const newTrip = {
           title
         };
@@ -42,24 +42,8 @@ class App extends Component {
       })
         .then(res => res.json())
         .then(newTrip =>  
-        this.setState({ trips: [...this.state.trips, newTrip] })
+        this.setState({ trips: [...this.state.trips, newTrip] }, cb(newTrip))
         )  
-        const newMember = {
-          name,
-          trip: newTrip.id
-        }
-        fetch(`${config.API_BASE_URL}/api/members`, {
-          method: 'POST',
-          headers: {
-              'content-type': 'application/json'
-          },
-          body: JSON.stringify(newMember),
-      })
-      .then(res => res.json())
-      .then(newMember =>  
-      this.setState({ members: [...this.state.members, newMember] })
-      )
-      console.log(this.state.members)
       },
       joinTrip: (tripId, name, cb) => {
         const trips = this.state.trips.map(trip => {
@@ -70,21 +54,35 @@ class App extends Component {
         this.setState({trips: [...this.state.trips, trips]}, cb)
       },
       addTask: (newTask) => {
-        const updateAllTasks = [...this.state.allTasks, newTask]
+        const updateAllTasks = [...this.state.tasks, newTask]
         this.setState({
-          allTasks: updateAllTasks
+          tasks: updateAllTasks
         })
       },
       deleteTask: (taskId) => {
-        const { allTasks } = this.state;
-        const remainingTasks = allTasks.filter(task => task.id !== taskId)
+        const { tasks } = this.state;
+        const remainingTasks = tasks.filter(task => task.id !== taskId)
         this.setState({
-          allTasks: remainingTasks
+          tasks: remainingTasks
         })
       }, 
-      addMember: (name, title) => {
-
-
+      addMember: (name, tripId, cb) => {
+        const newMember = {
+          name,
+          trip: Number(tripId),
+        }
+        fetch(`${config.API_BASE_URL}/api/members`, {
+          method: 'POST',
+          headers: {
+              'content-type': 'application/json'
+          },
+          body: JSON.stringify(newMember),
+      })
+      .then(res => res.json())
+      .then(newMember =>  
+      this.setState({ members: [...this.state.members, newMember] }, cb(tripId))
+      )
+      console.log(this.state.members)
       },
     };
   }
@@ -112,10 +110,10 @@ class App extends Component {
     .catch(error => {
       console.error({error});
     });
-    console.log(this.state)
   }
 
   render() {
+    console.log(this.state)
     return (
       <TripContext.Provider value={this.state}>
         <div>

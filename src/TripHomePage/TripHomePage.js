@@ -10,14 +10,15 @@ class TripHomePage extends Component {
   static contextType = TripContext;
 
   handleAddTask = listId => {
-   this.context.toggleAddTaskForm(listId)
+    this.context.toggleAddTaskForm(listId);
   };
   handleDeleteTask = taskId => {
-    this.context.deleteTask(taskId)
+    this.context.deleteTask(taskId);
   };
 
   render() {
     const { trips, lists, tasks, members } = this.context;
+
     return (
       <>
         <Nav
@@ -29,9 +30,9 @@ class TripHomePage extends Component {
               key={list.id}
               id={list.id}
               list={list}
-              header={list.header}
+              header={list.title}
               tasks={tasks.filter(
-                  task =>
+                task =>
                   task.list === list.id &&
                   task.trip == this.props.match.params.tripId
               )}
@@ -42,7 +43,9 @@ class TripHomePage extends Component {
           ))}
         </div>
         <Member
-          trip={trips.find(trip => trip.id == this.props.match.params.tripId)}
+          members={members.filter(
+            m => m.trip == this.props.match.params.tripId
+          )}
         />
       </>
     );
