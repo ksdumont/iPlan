@@ -29,19 +29,37 @@ class App extends Component {
        this.setState({lists: toggledLists})
       },
       
-      createTrip: (title, cb) => {
+      createTrip: (title, name) => {
         const newTrip = {
           title
         };
         fetch(`${config.API_BASE_URL}/api/trips`, {
-          method: 'POST'
-        })
+          method: 'POST',
+          headers: {
+              'content-type': 'application/json'
+          },
+          body: JSON.stringify(newTrip),
+      })
         .then(res => res.json())
-       
         .then(newTrip =>  
-        this.setState({ trips: [...this.state.trips, newTrip] }), () => {
-          cb(newTrip.id);
-        })
+        this.setState({ trips: [...this.state.trips, newTrip] })
+        )  
+        const newMember = {
+          name,
+          trip: newTrip.id
+        }
+        fetch(`${config.API_BASE_URL}/api/members`, {
+          method: 'POST',
+          headers: {
+              'content-type': 'application/json'
+          },
+          body: JSON.stringify(newMember),
+      })
+      .then(res => res.json())
+      .then(newMember =>  
+      this.setState({ members: [...this.state.members, newMember] })
+      )
+      console.log(this.state.members)
       },
       joinTrip: (tripId, name, cb) => {
         const trips = this.state.trips.map(trip => {
@@ -65,16 +83,9 @@ class App extends Component {
         })
       }, 
       addMember: (name, title) => {
-        const trip = this.state.trips.find(t => t === title)
-        const tripId = trip.id
-        const newMember = {
-          name,
-          trip: tripId
-        }
-        this.setState({
-          members: [...this.state.members, newMember]
-        })
-      }
+
+
+      },
     };
   }
   componentDidMount() {
@@ -101,10 +112,10 @@ class App extends Component {
     .catch(error => {
       console.error({error});
     });
+    console.log(this.state)
   }
 
   render() {
-    console.log(this.state)
     return (
       <TripContext.Provider value={this.state}>
         <div>

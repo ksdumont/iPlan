@@ -17,7 +17,7 @@ class TripHomePage extends Component {
   };
 
   render() {
-    const { trips, lists, allTasks } = this.context;
+    const { trips, lists, tasks, members } = this.context;
     return (
       <>
         <Nav
@@ -30,7 +30,7 @@ class TripHomePage extends Component {
               id={list.id}
               list={list}
               header={list.header}
-              tasks={allTasks.filter(
+              tasks={tasks.filter(
                   task =>
                   task.list === list.id &&
                   task.trip == this.props.match.params.tripId
