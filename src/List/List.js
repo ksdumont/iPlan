@@ -18,7 +18,7 @@ export default class List extends Component {
                     key={task.id}
                     id={task.id}
                     task={task.task}
-                    member={task.member}
+                    member={this.context.members.find(m => m.id === task.member)}
                     onClickDelete={this.props.onClickDelete}
                     /> 
                     ))}

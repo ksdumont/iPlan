@@ -17,7 +17,7 @@ export default class Join extends Component {
     const tripId = Number(this.state.tripId)
 
     if (!this.context.trips.find(trip => trip.id === tripId)) {
-      console.log("cant find id");
+      return alert('trip does not exist');
     } else {
       this.context.addMember(name, tripId, () => {
         this.props.history.push(`/trip/${tripId}`);

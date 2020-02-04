@@ -54,12 +54,26 @@ class App extends Component {
         this.setState({trips: [...this.state.trips, trips]}, cb)
       },
       addTask: (newTask) => {
-        const updateAllTasks = [...this.state.tasks, newTask]
-        this.setState({
-          tasks: updateAllTasks
+        fetch(`${config.API_BASE_URL}/api/tasks`, {
+          method: 'POST',
+          headers: {
+              'content-type': 'application/json'
+          },
+          body: JSON.stringify(newTask),
+      })
+      .then(res => res.json())
+      .then(newTask => 
+        this.setState({tasks: [...this.state.tasks, newTask]}))
+        .catch(error => {
+          console.error({error});
         })
       },
       deleteTask: (taskId) => {
+        fetch(`${config.API_BASE_URL}/api/tasks/${taskId}`, {
+          method: 'DELETE',
+          headers: {
+              'content-type': 'application/json'
+          }})
         const { tasks } = this.state;
         const remainingTasks = tasks.filter(task => task.id !== taskId)
         this.setState({
@@ -82,7 +96,6 @@ class App extends Component {
       .then(newMember =>  
       this.setState({ members: [...this.state.members, newMember] }, cb(tripId))
       )
-      console.log(this.state.members)
       },
     };
   }

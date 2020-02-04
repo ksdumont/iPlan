@@ -15,13 +15,18 @@ export default class AddTaskForm extends Component {
     handleSubmit = e => {
         e.preventDefault()
         const { task, name } = this.state
-        const id = this.context.allTasks.length + 1
-        const trip = this.props.tripId
+        const id = this.context.tasks.length + 1
+        const trip = Number(this.props.tripId)
         const { list } = this.props
+        const findMember = this.context.members.find(m => m.name === name && m.trip === trip) 
+        if (!findMember) {
+          return alert('member does not exist')
+        } 
+        const member = findMember.id
         const newTask = {
             id,
             task,
-            member: name,
+            member,
             trip,
             list
           }
@@ -43,12 +48,10 @@ export default class AddTaskForm extends Component {
     render() {
         return (      
             <form className='add-task-form' onSubmit={this.handleSubmit}>
-              <label>Task:</label>
               <input type='text' name='task' value={this.state.task} onChange={this.handleTaskChange}
-                      aria-label='task' required/>
-              <label>Name:</label>
+                      aria-label='task' placeholder='task'required/>
               <input type='text' name='name' value={this.state.name} onChange={this.handleNameChange}
-                      aria-label='Your Name' required/>
+                      aria-label='Your Name' placeholder='name' required/>
               <button type='submit' className='add-task-submit'>+</button>
            </form>
         )
