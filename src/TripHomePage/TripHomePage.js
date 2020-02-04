@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Nav from "../Nav/Nav";
 import Member from "../Member/Member";
 import List from "../List/List";
-import AddTaskForm from "../AddTaskForm/AddTaskForm";
 import "./TripHomePage.css";
 import TripContext from "../TripContext";
 

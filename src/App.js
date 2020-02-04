@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, BrowserRouter } from "react-router-dom";
 import "./App.css";
 import config from './config';
 import Home from "./Home/Home";
@@ -7,7 +7,6 @@ import Create from "./Create/Create";
 import Join from "./Join/Join";
 import TripHomePage from "./TripHomePage/TripHomePage";
 import TripContext from "./TripContext";
-import uuid from "uuid/v4";
 require('dotenv').config()
 
 class App extends Component {
@@ -47,7 +46,7 @@ class App extends Component {
       },
       joinTrip: (tripId, name, cb) => {
         const trips = this.state.trips.map(trip => {
-          if (trip.id == tripId) {
+          if (trip.id === tripId) {
             trip.members = [...trip.members, name]
           }
         });
@@ -126,16 +125,17 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state)
     return (
       <TripContext.Provider value={this.state}>
         <div>
-          <Switch>
-            <Route exact path="/create" component={Create} />
-            <Route exact path="/join" component={Join} />
-            <Route exact path="/trip/:tripId" component={TripHomePage} />
-            <Route exact path="/" component={Home} />
-          </Switch>
+          <BrowserRouter>
+            <Switch>
+              <Route exact path="/create" component={Create} />
+              <Route exact path="/join" component={Join} />
+              <Route exact path="/trip/:tripId" component={TripHomePage} />
+              <Route exact path="/" component={Home} />
+            </Switch>
+          </BrowserRouter>
         </div>
       </TripContext.Provider>
     );
