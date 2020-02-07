@@ -16,12 +16,12 @@ class TripHomePage extends Component {
   };
 
   render() {
-    const { trips, lists, tasks, members } = this.context;
-
-    return (
+    const { trips, lists, tasks, members } = this.context
+   
+    return this.context !== undefined ? (
       <>
         <Nav
-          trip={trips.find(trip => trip.id == this.props.match.params.tripId)}
+          trip={trips.find(trip => trip.id === Number(this.props.match.params.tripId))}
         />
         <div className="list">
           {lists.map(list => (
@@ -33,7 +33,7 @@ class TripHomePage extends Component {
               tasks={tasks.filter(
                 task =>
                   task.list === list.id &&
-                  task.trip == this.props.match.params.tripId
+                  task.trip === Number(this.props.match.params.tripId)
               )}
               onClickAdd={this.handleAddTask}
               onClickDelete={this.handleDeleteTask}
@@ -41,13 +41,13 @@ class TripHomePage extends Component {
             />
           ))}
         </div>
-        <Member
+        <Member 
           members={members.filter(
-            m => m.trip == this.props.match.params.tripId
+            m => m.trip === Number(this.props.match.params.tripId)
           )}
         />
       </>
-    );
+    ) : ''
   }
 }
 

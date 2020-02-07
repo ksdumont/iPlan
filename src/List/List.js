@@ -7,7 +7,7 @@ import TripContext from "../TripContext";
 export default class List extends Component {
     static contextType = TripContext;
     render() {
-        return (
+        return this.props.tasks !== undefined ? (
             <section className="List">
                 <header className="List-header">
                     <h2>{this.props.header}</h2>
@@ -28,7 +28,6 @@ export default class List extends Component {
                     {this.props.list.displayAddTaskForm ? <AddTaskForm tripId={this.props.tripId} list={this.props.id}/> : null}
                 </div>
             </section>
-            )
-        
+            ) : null;      
         }
     }

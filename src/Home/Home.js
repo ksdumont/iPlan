@@ -1,6 +1,6 @@
 import React from 'react';
 import './Home.css'
-import {Link} from 'react-router-dom'
+import {Link, Route} from 'react-router-dom'
 
 export default function Home() {
     return (
@@ -20,8 +20,11 @@ export default function Home() {
             </section>
             
             <section className="home-buttons">
-                <Link to='/create'><button className="create">Create a Trip!</button></Link>
-                <Link to='/join'><button className="join">Join a Trip!</button></Link>
+                <Route>
+                    <Link to='/create'><button className="create">Create a Trip!</button></Link>
+                    <Link to='/join'><button className="join">Join a Trip!</button></Link>
+                </Route>
+                
             </section>
         </div>
     )

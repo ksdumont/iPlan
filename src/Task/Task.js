@@ -2,7 +2,7 @@ import React from "react";
 import "./Task.css";
 
 export default function Task(props) {
-  return (
+  return props.member !== undefined ? (
     <div className="Task">
       <div className="task-left">
         <h3>Task:{props.task}</h3>
@@ -17,5 +17,5 @@ export default function Task(props) {
         x
       </button>
     </div>
-  );
+  ) : ''
 }

@@ -47,7 +47,7 @@ class App extends Component {
       joinTrip: (tripId, name, cb) => {
         const trips = this.state.trips.map(trip => {
           if (trip.id === tripId) {
-            trip.members = [...trip.members, name]
+             trip.members = [...trip.members, name]
           }
         });
         this.setState({trips: [...this.state.trips, trips]}, cb)
@@ -124,7 +124,7 @@ class App extends Component {
     });
   }
 
-  render() {
+  render() { 
     return (
       <TripContext.Provider value={this.state}>
         <div>
