@@ -16,6 +16,10 @@ class TripHomePage extends Component {
   };
 
   render() {
+    
+    if (this.context == null) {
+      return (<></>)
+    }
     const { trips, lists, tasks, members } = this.context
    
     return this.context !== undefined ? (

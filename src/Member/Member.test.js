@@ -4,6 +4,7 @@ import Member from './Member';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<Member />, div);
+  let members=[]
+  ReactDOM.render(<Member members={members}/>, div);
   ReactDOM.unmountComponentAtNode(div);
 });
