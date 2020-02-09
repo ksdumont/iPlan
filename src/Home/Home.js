@@ -5,7 +5,7 @@ import {Link, Route} from 'react-router-dom'
 export default function Home() {
     return (
         <div>
-            <header>
+            <header className="headerHome">
                 <h1>iPlan</h1>
             </header>
             <section className="description">

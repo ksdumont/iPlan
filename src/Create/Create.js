@@ -36,7 +36,7 @@ export default class Create extends Component {
   render() {
     return (
       <div>
-        <header>
+        <header className="headerCreate">
           <h1>iPlan</h1>
         </header>
 

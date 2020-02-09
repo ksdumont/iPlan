@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
-import "./App.css";
 import config from './config';
 import Home from "./Home/Home";
 import Create from "./Create/Create";
@@ -43,14 +42,6 @@ class App extends Component {
         .then(newTrip =>  
         this.setState({ trips: [...this.state.trips, newTrip] }, cb(newTrip))
         )  
-      },
-      joinTrip: (tripId, name, cb) => {
-        const trips = this.state.trips.map(trip => {
-          if (trip.id === tripId) {
-             trip.members = [...trip.members, name]
-          }
-        });
-        this.setState({trips: [...this.state.trips, trips]}, cb)
       },
       addTask: (newTask) => {
         fetch(`${config.API_BASE_URL}/api/tasks`, {

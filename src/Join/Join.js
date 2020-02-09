@@ -39,7 +39,7 @@ export default class Join extends Component {
   render() {
     return (
       <div>
-        <header>
+        <header className="headerJoin">
           <h1>iPlan</h1>
         </header>
 

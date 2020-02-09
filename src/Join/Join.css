@@ -2,9 +2,9 @@
   box-sizing: border-box;
 }
 
-header > h1 {
+.headerJoin {
   text-align: center;
-  color: black;
+  color: #C2967F;
   font-size: 50px;
 }
 .join-form {
