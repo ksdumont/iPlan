@@ -10,13 +10,18 @@
     font-size: 50px;
   }
   .description {
-    color: #916852;
+    color: #C2967F;
     font-family: 'Roboto Mono', monospace;
+    font-weight: bold;
     text-align: center;
-    margin: 30px auto;
-    font-size: 25px;
+    border: solid 1px white;
+    border-radius: 10px;
+    background-color: white;
+    padding: 5px;
+    margin: 20px auto;
+    font-size: 1.3em;
     line-height: 35px;
-    width: 90%;
+    width: 80%;
   }
   body {
     background: url('/NatureStock7.jpg') no-repeat center center fixed;
@@ -31,6 +36,9 @@
     border-radius: 5px;
     height: 30px;
     font-size: 20px;
+    font-family: 'Roboto Mono', monospace;
+    color: #916852;
+    background-color: white;
     min-width: 140px;
     min-height: 40px;
   }

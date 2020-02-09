@@ -3,3 +3,8 @@
     justify-content: space-around;
     margin: 20px 80px;
 }
+@media only screen and (min-width: 600px) {
+    .list {
+        margin: 40px 80px;
+    }
+}

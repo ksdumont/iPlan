@@ -9,9 +9,13 @@
     text-align: center;
     font-size: 50px;
     margin: 0 auto;
+    font-family: 'Roboto Mono', monospace;
+    color: #C2967F;
 }
 .id {
     font-size: 12px;
+    font-family: 'Roboto Mono', monospace;
+    color: #C2967F;
 }
 .logo {
     background: none!important;
@@ -20,7 +24,20 @@
     text-decoration: underline;
     cursor: pointer;
     font-size: 20px;
+    font-family: 'Roboto Mono', monospace;
+    color: #C2967F;
 }
 .logo:hover {
     color: lightblue;
+}
+@media only screen and (min-width: 600px) {
+    .title {
+        font-size: 75px;
+    }
+    .id {
+        font-size: 20px;
+    }
+    .logo {
+        font-size: 30px;
+    }
 }

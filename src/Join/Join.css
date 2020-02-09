@@ -6,6 +6,7 @@
   text-align: center;
   color: #C2967F;
   font-size: 50px;
+  font-family: 'Roboto Mono', monospace;
 }
 .join-form {
   display: flex;
@@ -15,8 +16,9 @@
 .join-form > label {
   margin: 10px;
   font-size: 30px;
-  color: black;
+  color: #916852;
   text-align: center;
+  font-family: 'Roboto Slab', serif;
 }
 .join-form > input[type="text"] {
   margin: 10px;
@@ -24,6 +26,8 @@
   height: 45px;
   width: 200px;
   font-size: 25px;
+  color: #916852;
+  font-family: 'Roboto Slab', serif;
 }
 button.join-submit {
   margin: 10px;
@@ -32,6 +36,9 @@ button.join-submit {
   font-size: 20px;
   min-width: 140px;
   min-height: 40px;
+  background-color: white;
+  color: #916852;
+  font-family: 'Roboto Mono', monospace;
 }
 button:hover {
   background-color: rgb(176, 241, 249);

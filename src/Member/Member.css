@@ -1,19 +1,34 @@
 .members {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
     text-align: center;
+    border: solid 1px #916852;
+    border-radius: 5px;
+    background: white;
+    max-width: 200px;
+    max-height: 200px;
+    overflow: auto;
+    padding: 20px 10px;
+    float: right;
 }
-.members > h3 {
-    color: rgb(113, 38, 38);
+.title-members {
+    margin-top: 5px;
+    color: #916852;
     font-size: 28px;
     font-weight: bold;
+    font-family: 'Roboto Mono', monospace;
+    margin-block-end: .5em;
+}
+.member-names {
+    margin-top: 0 auto;
+    text-align: center;
+    font-size: 22px;
+    list-style: none;
+    color: #916852;
+    font-weight: bold;
+    font-family: 'Roboto Mono', monospace;   
+    padding-inline-start: 0;
+    margin-block-start: 0;
+    margin-block-end: .2em;
 }
 .memberName {
-    font-size: 24px;
-    list-style: none;
-    color: rgb(113, 38, 38);
-    font-weight: bold;
+    text-align: center;
 }

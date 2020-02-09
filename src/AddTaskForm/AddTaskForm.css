@@ -3,17 +3,27 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 80px;
 }
 .add-task-form > input {
-    border: solid 1px black;
+    border: solid 1px #916852;
     border-radius: 5px;
     margin: 4px auto;
     text-align: center;
+    max-width: 80px;
+    color: #916852;
+    font-family: 'Roboto Slab', serif;
+}
+.add-task-form > input::placeholder {
+    color: #916852;
+    font-family: 'Roboto Slab', serif;
 }
 .add-task-submit {
     font-size: 20px;
     max-width: 40px;
     border-radius: 10px;
     margin: 2px auto;
+    text-align: center;
+    background-color: white;
+    color: #916852;
+    font-weight: bold;
 }

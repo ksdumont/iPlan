@@ -1,9 +1,11 @@
 .Task {
   border-radius: 4px;
-  background-color: rgba(215, 210, 210, 0.45);
+  border: solid 1px #C2967F;
+  background-color: white;
   padding: 8px;
-  color: #17394d;
-  margin-bottom: 10px;
+  color:  #916852;
+  margin-top: 5px;
+  margin-bottom: 5px;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
@@ -11,20 +13,18 @@
   overflow: auto;
 }
 
-.Task h3 {
-  font-size: 16px;
-  margin-bottom: 4px;
-  font-weight: normal;
-}
-
 .Task p {
-  margin: 0;
-  font-size: 16px;
+  margin: 3px auto;
+  font-size: 14px;
+  overflow: auto;
+  font-family: 'Roboto Slab', serif;
 }
 
 .delete-button {
-  background-color: maroon;
+  background-color: #916852;
   border-radius: 6px;
   color: white;
-  font-size: 10px;
+  font-size: 12px;
+  margin-left: 3px;
+  font-weight: bold;
 }
