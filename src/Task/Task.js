@@ -5,8 +5,8 @@ export default function Task(props) {
   return props.member !== undefined ? (
     <div className="Task">
       <div className="task-left">
-        <p>Task:{props.task}</p>
-        <p>Name:{props.member.name}</p>
+        <p>Task: {props.task}</p>
+        <p>Name: {props.member.name}</p>
       </div>
       <button
         className="delete-button"

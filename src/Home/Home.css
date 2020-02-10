@@ -8,6 +8,14 @@
     color: #C2967F;
     font-family: 'Roboto Mono', monospace;
     font-size: 50px;
+    position: relative;
+    animation-name: headerHome;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+  }
+  @keyframes headerHome {
+    0% {top: -200px}
+    100% {top: 40px}
   }
   .description {
     color: #C2967F;
@@ -22,6 +30,14 @@
     font-size: 1.3em;
     line-height: 35px;
     width: 80%;
+    position: relative;
+    animation-name: description;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+  }
+  @keyframes description {
+    0% {left: -1000px}
+    100% {left: 0}
   }
   body {
     background: url('/NatureStock7.jpg') no-repeat center center fixed;
@@ -41,9 +57,22 @@
     background-color: white;
     min-width: 140px;
     min-height: 40px;
+    opacity: 0;
+    animation-name: buttons;
+    animation-delay: 3s;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    transition-property: transform;
+    transition-duration: 1s;
   }
-  button:hover {
-    background-color: rgb(176, 241, 249);
+  @keyframes buttons {
+    0% {opacity: 0}
+    100% {opacity: 1}
+  }
+  button.create:hover, button.join:hover {
+    background-color: skyblue;
+    transform: rotateY(180deg);
+    cursor: pointer;
   }
   @media only screen and (min-width: 600px) {
   .home-buttons {

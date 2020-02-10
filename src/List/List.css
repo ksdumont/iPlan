@@ -49,9 +49,12 @@
     background-color: white;
     margin: 5px auto;
     color: #916852;
+    transition-property: transform;
+    transition-duration: 1s;
   }
   
   .List-add-button:hover {
     cursor: pointer;
-    color: lightblue;
+    background-color: skyblue;
+    transform: rotateY(180deg);
   }

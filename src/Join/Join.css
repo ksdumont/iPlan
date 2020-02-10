@@ -39,7 +39,11 @@ button.join-submit {
   background-color: white;
   color: #916852;
   font-family: 'Roboto Mono', monospace;
+  transition-property: transform;
+  transition-duration: 1s;
 }
-button:hover {
-  background-color: rgb(176, 241, 249);
+button.join-submit:hover {
+  background-color: skyblue;
+  transform: rotateY(180deg);
+  cursor: pointer;
 }

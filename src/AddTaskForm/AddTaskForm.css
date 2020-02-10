@@ -26,4 +26,11 @@
     background-color: white;
     color: #916852;
     font-weight: bold;
+    transition-property: transform;
+    transition-duration: 1s;
 }
+.add-task-submit:hover {
+    background-color: skyblue;
+    transform: rotateY(180deg);
+    cursor: pointer;
+  }

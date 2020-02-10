@@ -28,7 +28,8 @@
     color: #C2967F;
 }
 .logo:hover {
-    color: lightblue;
+    color: skyblue;
+    cursor: pointer;
 }
 @media only screen and (min-width: 600px) {
     .title {
