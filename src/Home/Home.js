@@ -1,12 +1,8 @@
 import React from 'react';
 import './Home.css'
 import {Link, Route} from 'react-router-dom'
-import config from './config'
-require('dotenv').config()
 
 export default function Home() {
-    console.log(config.API_BASE_URL)
-    console.log(process.env.REACT_APP_API_BASE_URL)
     return (
         <div>
             <header className="headerHome">
