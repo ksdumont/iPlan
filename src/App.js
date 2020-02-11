@@ -111,7 +111,7 @@ class App extends Component {
       this.setState({lists, trips, members, tasks});
     })
     .catch(error => {
-      console.error({error});
+     console.error({error});
     });
   }
 
