@@ -16,42 +16,47 @@ class TripHomePage extends Component {
   };
 
   render() {
-    
     if (this.context == null) {
-      return (<></>)
+      return <></>;
     }
-    const { trips, lists, tasks, members } = this.context
-   
+    const { trips, lists, tasks, members } = this.context;
+
     return this.context !== undefined ? (
       <>
         <Nav
-          trip={trips.find(trip => trip.id === Number(this.props.match.params.tripId))}
-        />
-        <div className="list">
-          {lists.map(list => (
-            <List
-              key={list.id}
-              id={list.id}
-              list={list}
-              header={list.title}
-              tasks={tasks.filter(
-                task =>
-                  task.list === list.id &&
-                  task.trip === Number(this.props.match.params.tripId)
-              )}
-              onClickAdd={this.handleAddTask}
-              onClickDelete={this.handleDeleteTask}
-              tripId={this.props.match.params.tripId}
-            />
-          ))}
-        </div>
-        <Member 
-          members={members.filter(
-            m => m.trip === Number(this.props.match.params.tripId)
+          trip={trips.find(
+            trip => trip.id === Number(this.props.match.params.tripId)
           )}
         />
+        <section className="listHomePage">
+          <div className="list">
+            {lists.map(list => (
+              <List
+                key={list.id}
+                id={list.id}
+                list={list}
+                header={list.title}
+                tasks={tasks.filter(
+                  task =>
+                    task.list === list.id &&
+                    task.trip === Number(this.props.match.params.tripId)
+                )}
+                onClickAdd={this.handleAddTask}
+                onClickDelete={this.handleDeleteTask}
+                tripId={this.props.match.params.tripId}
+              />
+            ))}
+          </div>
+          <Member
+            members={members.filter(
+              m => m.trip === Number(this.props.match.params.tripId)
+            )}
+          />
+        </section>
       </>
-    ) : ''
+    ) : (
+      ""
+    );
   }
 }
 

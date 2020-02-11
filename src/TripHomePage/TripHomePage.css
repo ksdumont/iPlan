@@ -1,10 +1,20 @@
+section.listHomePage {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
 .list {
-    display: flex;
-    justify-content: space-around;
-    margin: 20px 80px;
+  display: flex;
+  justify-content: space-around;
+  margin: 20px;
+  flex: 1;
 }
 @media only screen and (min-width: 600px) {
-    .list {
-        margin: 40px 80px;
-    }
+  .list {
+    margin: 40px 80px;
+    flex: 5;
+  }
+  section.listHomePage {
+    flex-direction: row;
+  }
 }
