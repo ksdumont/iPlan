@@ -8,13 +8,16 @@ Welcome to iPlan. Your smart trip planner. iPlan is an easy and convenient way t
 
 Create your own trip. Invite others to join your trip. Divide up tasks among the members of the trip in a clear and concise list. Mange all the tasks on one page.
 
+![](iPlan%20TripHomePage.png)
+
 #### Technologies Used
-*HTML
-*CSS
-*Javascript
-*React
-*Node
-*Postgresql
+* HTML
+* CSS
+* Javascript
+* React
+* Node
+* Postgresql
+* Knex
 
 
 
