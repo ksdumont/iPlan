@@ -18,7 +18,8 @@ export default class AddTaskForm extends Component {
         const id = this.context.tasks.length + 1
         const trip = Number(this.props.tripId)
         const { list } = this.props
-        const findMember = this.context.members.find(m => m.name === name && m.trip === trip) 
+        const findMember = this.context.members.find(m => m.name.toLowerCase() === name.toLowerCase() 
+        && m.trip === trip) 
         if (!findMember) {
           return alert('member does not exist')
         } 
